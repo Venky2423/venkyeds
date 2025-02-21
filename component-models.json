@@ -12,12 +12,6 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "text",
-        "name": "dataRef",
-        "label": "Bind reference",
-        "valueType": "string"
       }
     ]
   },
