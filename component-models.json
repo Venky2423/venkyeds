@@ -2074,6 +2074,12 @@
       },
       {
         "component": "text",
+        "name": "dataRef",
+        "label": "Bind reference",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "valueType": "string",
         "name": "altText",
         "label": "Alternate text"
