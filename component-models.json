@@ -877,7 +877,45 @@
             "component": "text",
             "name": "checkedValue",
             "label": "When Checked, return value",
-            "valueType": "string"
+            "valueType": "string",
+            "value": "on",
+            "validation": {
+              "condition": {
+                "or": [
+                  {
+                    "and": [
+                      {
+                        "==": [
+                          {
+                            "var": "type"
+                          },
+                          "string"
+                        ]
+                      },
+                      {
+                        "regExp": "^[a-zA-Z]+$"
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "==": [
+                          {
+                            "var": "type"
+                          },
+                          "number"
+                        ]
+                      },
+                      {
+                        "regExp": "^[0-9]+$"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "customErrorMsg": "Value must match the selected type"
+            }
           },
           {
             "component": "boolean",
