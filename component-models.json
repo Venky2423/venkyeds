@@ -881,40 +881,15 @@
             "value": "on",
             "validation": {
               "condition": {
-                "or": [
+                "==": [
                   {
-                    "and": [
-                      {
-                        "==": [
-                          {
-                            "var": "type"
-                          },
-                          "string"
-                        ]
-                      },
-                      {
-                        "regExp": "^[a-zA-Z]+$"
-                      }
-                    ]
+                    "var": "type"
                   },
-                  {
-                    "and": [
-                      {
-                        "==": [
-                          {
-                            "var": "type"
-                          },
-                          "number"
-                        ]
-                      },
-                      {
-                        "regExp": "^[0-9]+$"
-                      }
-                    ]
-                  }
+                  "number"
                 ]
               },
-              "customErrorMsg": "Value must match the selected type"
+              "regExp": "^[0-9]+$",
+              "customErrorMsg": "Value must be a number"
             }
           },
           {
