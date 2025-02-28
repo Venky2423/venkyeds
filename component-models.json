@@ -614,7 +614,7 @@
             "required": true
           },
           {
-            "component": "text",
+            "component": "richtext",
             "name": "enumNames",
             "label": "Options (Display Value)",
             "valueType": "string",
@@ -647,18 +647,19 @@
             "label": "Data type of submitted value",
             "name": "type",
             "valueType": "string",
+            "value": "number[]",
             "options": [
               {
                 "name": "String",
-                "value": "string"
+                "value": "string[]"
               },
               {
                 "name": "Boolean",
-                "value": "boolean"
+                "value": "boolean[]"
               },
               {
                 "name": "Number",
-                "value": "number"
+                "value": "number[]"
               }
             ]
           },
@@ -876,7 +877,20 @@
             "component": "text",
             "name": "checkedValue",
             "label": "When Checked, return value",
-            "valueType": "string"
+            "valueType": "string",
+            "value": "on",
+            "validation": {
+              "condition": {
+                "==": [
+                  {
+                    "var": "type"
+                  },
+                  "number"
+                ]
+              },
+              "regExp": "^[0-9]+$",
+              "customErrorMsg": "Value must be a number"
+            }
           },
           {
             "component": "boolean",
@@ -1342,7 +1356,7 @@
             "required": true
           },
           {
-            "component": "text",
+            "component": "richtext",
             "name": "enumNames",
             "label": "Options (Display Value)",
             "valueType": "string",
@@ -1359,6 +1373,7 @@
             "label": "Data type of submitted value",
             "name": "type",
             "valueType": "string",
+            "value": "string",
             "options": [
               {
                 "name": "String",
@@ -2065,6 +2080,12 @@
         "name": "fileReference",
         "label": "Image",
         "multi": false
+      },
+      {
+        "component": "text",
+        "name": "dataRef",
+        "label": "Bind reference",
+        "valueType": "string"
       },
       {
         "component": "text",
@@ -2986,7 +3007,7 @@
             "required": true
           },
           {
-            "component": "text",
+            "component": "richtext",
             "name": "enumNames",
             "label": "Options (Display Value)",
             "valueType": "string",
@@ -3592,7 +3613,7 @@
             }
           },
           {
-            "component": "text",
+            "component": "richtext",
             "name": "jcr:title",
             "label": "Title",
             "valueType": "string"
@@ -3812,6 +3833,12 @@
         "label": "Name",
         "valueType": "string",
         "required": true
+      },
+      {
+        "component": "text",
+        "name": "dataRef",
+        "label": "Bind reference",
+        "valueType": "string"
       },
       {
         "component": "boolean",
