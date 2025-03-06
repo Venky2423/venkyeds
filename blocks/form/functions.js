@@ -1,40 +1,47 @@
 /**
- * Get Full Name
- * @name getFullName Concats first name and last name
- * @param {string} firstname in Stringformat
- * @param {string} lastname in Stringformat
- * @return {string}
- */
-function getFullName(firstname, lastname) {
-  return `${firstname} ${lastname}`.trim();
-}
-
-/**
  * Calculate the number of days between two dates.
  * @param {*} endDate
  * @param {*} startDate
  * @returns {number} returns the number of days between two dates
  */
 function days(endDate, startDate) {
-  const start = typeof startDate === 'string' ? new Date(startDate) : startDate;
-  const end = typeof endDate === 'string' ? new Date(endDate) : endDate;
-
-  // return zero if dates are valid
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
-    return 0;
-  }
-
-  const diffInMs = Math.abs(end.getTime() - start.getTime());
-  return Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const start = dateToDaysSinceEpoch(startDate);
+  const end = dateToDaysSinceEpoch(endDate);
+  
+  return end - start;
 }
 
 /**
- * Set the minimum date for a date field.
- * @param {date} date
- * @param {scope} globals
+ * Converts a date to the number of days since the Unix epoch (1970-01-01).
+ * 
+ * If the input date is a number, it is assumed to represent the number of days since the epoch, 
+ * including both integer and decimal parts. In this case, only the integer part is returned as the number of days.
+ * 
+ * @param {string|Date|number} date - The date to convert. 
+ * Can be:
+ * - An ISO string (yyyy-mm-dd)
+ * - A Date object
+ * - A number representing the days since the epoch, where the integer part is the number of days and the decimal part is the fraction of the day
+ * 
+ * @returns {number} - The number of days since the Unix epoch
  */
-function setMinDate(date, globals) {
-  globals.functions.setProperty(globals.field, { minimum: date });
+function dateToDaysSinceEpoch(date) {
+  let dateObj;
+  if (typeof date === 'string') {
+      dateObj = new Date(date); 
+  } else if (typeof date === 'number') {
+      return Math.floor(date);
+  } else if (date instanceof Date) {
+      dateObj = date;
+  } else {
+      throw new Error('Invalid date input');
+  }
+
+  // Validate that date is valid after parsing
+  if (isNaN(dateObj.getTime())) {
+      throw new Error('Invalid date input');
+  }
+  return Math.floor(dateObj.getTime() / (1000 * 60 * 60 * 24));
 }
 
-export { getFullName, days, setMinDate };
+export { getFullName, days, setMinDate, dateToDaysSinceEpoch };
