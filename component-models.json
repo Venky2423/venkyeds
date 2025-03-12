@@ -893,10 +893,13 @@
             }
           },
           {
-            "component": "boolean",
+            "component": "richtext",
             "name": "enableUncheckedValue",
             "label": "Preserve Uncheck state value.",
-            "valueType": "boolean"
+            "valueType": "boolean",
+            "multi": true,
+            "maxItems": 2,
+            "placeholder": "Enter display value"
           },
           {
             "component": "text",
