@@ -891,7 +891,7 @@
             "name": "enableUncheckedValue",
             "label": "Preserve Uncheck state value.",
             "valueType": "boolean",
-            "multi": true,
+            "multi": 2,
             "maxItems": 2,
             "placeholder": "Enter display value"
           },
