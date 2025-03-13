@@ -888,10 +888,10 @@
           },
           {
             "component": "richtext",
-            "name": "enableUncheckedValue",
+            "name": "enum",
             "label": "Preserve Uncheck state value.",
             "valueType": "boolean",
-            "multi": 2,
+            "multi": true,
             "maxItems": 2,
             "placeholder": "Enter display value"
           },
