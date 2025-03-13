@@ -881,8 +881,8 @@
             "multi": true,
             "required": true,
             "validation": {
-              "min": 2,
-              "max": 2,
+              "minLength": 2,
+              "maxLength": 2,
               "customErrorMsg": "Why don't you make like a tree and get outta here?"
             }
           },
