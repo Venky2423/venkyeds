@@ -875,21 +875,15 @@
           },
           {
             "component": "text",
-            "name": "checkedValue",
-            "label": "When Checked, return value",
+            "name": "enum",
+            "label": "When Unchecked, return value",
             "valueType": "string",
-            "value": "on",
+            "multi": true,
+            "required": true,
             "validation": {
-              "condition": {
-                "==": [
-                  {
-                    "var": "type"
-                  },
-                  "number"
-                ]
-              },
-              "regExp": "^[0-9]+$",
-              "customErrorMsg": "Value must be a number"
+              "min": 2,
+              "max": 2,
+              "customErrorMsg": "Why don't you make like a tree and get outta here?"
             }
           },
           {
