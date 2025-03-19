@@ -4033,6 +4033,12 @@
         "fields": [
           {
             "component": "boolean",
+            "name": "repeatable",
+            "label": "Make panel repeatable",
+            "valueType": "boolean"
+          },
+          {
+            "component": "number",
             "name": "minOccur",
             "label": "Minimum repetitions",
             "valueType": "number",
